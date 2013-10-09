@@ -1,0 +1,11 @@
+*~
+#*#
+*.o
+#.hi
+xmonad.errors
+xmonad-i386-linux
+*.old
+*.swp
+.log
+history
+*.hi
