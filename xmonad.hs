@@ -22,9 +22,15 @@ myConfig dzenPipe = defaultConfig
   , layoutHook         = myLayout                      
   , logHook            = myLogHook dzenPipe >> logHook defaultConfig
   , terminal           = "urxvt"
+  , manageHook         = myManageHook <+> manageHook defaultConfig
   } 
   where
     myLogHook dzenPipe  = myDzenHook dzenPipe >> updatePointer (Relative 0.5 0.5)  
+
+myManageHook = composeAll . concat $
+               [ [ className =? c --> doIgnore | c <- ignore ]
+               ] where ignore = ["Trayer", "trayer"]
+               
 
 myDzenHook dzenPipe = dynamicLogWithPP $ myDzenPP style dzenPipe
 
