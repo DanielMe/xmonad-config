@@ -1,7 +1,7 @@
 module Monitor where
 
-import List
-import Char
+import Data.List
+import Data.Char
 
 data BatteryStatus = BatteryStatus
     { 
